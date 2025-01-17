@@ -32,19 +32,16 @@ goBtn.addEventListener('click', () => {
         input.push([]);
         for (let j = 0; j < size; j++) {
             input[i][j] = document.getElementById(`cell-${i + 1}-${j + 1}`).value;
-            document.getElementById(`cell-${i + 1}-${j + 1}`).value = 6;
+            // document.getElementById(`cell-${i + 1}-${j + 1}`).value = 6;
         }
     }
 
     let newArray = magicSquare(input, size);
-    console.log(newArray);
     for (let i = 0; i < size; i++) {
         for (let j = 0; j < size; j++) {
             document.getElementById(`cell-${i + 1}-${j + 1}`).value = newArray[i][j];
         }
     }
-
-    console.log(input);
 })
 
 incrementBtn.addEventListener('click', () => {
