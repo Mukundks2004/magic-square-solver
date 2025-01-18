@@ -1,14 +1,13 @@
 function create2DArray(n, m) {
     let array = [];
     for (let i = 0; i < n; i++) {
-        array[i] = new Array(m).fill(0);  // Fill each row with zeros
+        array[i] = new Array(m).fill(0);
     }
     return array;
 }
 
 function magicSquare(inputArray, size) {
     let result = []
-    console.log(inputArray);
 
     for (let i = 0; i < size; i++) {
         result.push([]);
@@ -19,8 +18,12 @@ function magicSquare(inputArray, size) {
 
 
     let cellsWhoseValuesAreKnown = new Array(size * size).fill(0);
+    
     let knownCellCount = inputArray.flat().filter(element => element !== '').length;
-    console.log(inputArray);
+
+    if (knownCellCount == 0) {
+        return 0;
+    }
 
     for (let i = 0; i < size; i++) {
         for (let j = 0; j < size; j++) {
@@ -134,8 +137,8 @@ function magicSquare(inputArray, size) {
 
     let variableCount = 0;
     for (let i = 0; i < size * size; i++) {
-        if (inputArray[Math.floor((i / 3))][i % 3] == '') {
-            inputArray[Math.floor((i / 3))][i % 3] = adjointMatrix[variableCount][adjointMatrixCols - 1];
+        if (inputArray[Math.floor((i / size))][i % size] == '') {
+            inputArray[Math.floor((i / size))][i % size] = adjointMatrix[variableCount][adjointMatrixCols - 1];
             variableCount++;
         }
     }
